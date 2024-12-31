@@ -51,4 +51,17 @@ class AuthController extends Controller
             401
         );
     }
+
+    public function logout()
+    {
+        Auth::user()->tokens->each(function ($token) {
+            $token->delete();
+        });
+
+        return $this->sendResponse(
+            [],
+            'User logged out successfully.',
+            Response::HTTP_OK
+        );
+    }
 }

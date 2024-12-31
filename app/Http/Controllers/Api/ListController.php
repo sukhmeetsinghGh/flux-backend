@@ -52,7 +52,7 @@ class ListController extends Controller
             return $this->sendError('Todo list not found or you do not have access to it.', [], 404);
         }
 
-        $tasks = $list->tasks; // Assuming there is a 'tasks' relationship defined in the TodoList model
+        $tasks = $list->tasks;
 
         return $this->sendResponse($tasks, 'Tasks retrieved successfully.');
     }
